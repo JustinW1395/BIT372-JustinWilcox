@@ -28,8 +28,8 @@ android {
     }
 
     // needed for data binding
-    buildFeatures {
-        dataBinding true
+    buildFeatures{
+        dataBinding true;
     }
 }
 
