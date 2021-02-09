@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Fahrenheit to Celcius"
+        android:text="Pounds to Kilograms"
         android:textSize="24sp"
         app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/fahrenheit_input"
+        android:id="@+id/pound_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -42,15 +42,15 @@
         app:layout_constraintTop_toBottomOf="@+id/fahrenheit_title" />
 
     <TextView
-        android:id="@+id/celcius_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/kilogram_text"
+        android:layout_width="64dp"
+        android:layout_height="23dp"
         android:layout_marginTop="16dp"
-        android:text="ºC"
+        android:text="kg"
         app:layout_constraintEnd_toStartOf="@+id/convert_btn"
         app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fahrenheit_input" />
+        app:layout_constraintTop_toBottomOf="@+id/pound_input" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

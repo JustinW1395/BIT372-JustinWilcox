@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button fbtn = findViewById(R.id.convert_btn);
 
-        EditText finput = findViewById(R.id.fahrenheit_input);
-        TextView ctxt = findViewById(R.id.celcius_text);
+        EditText lbsinput = findViewById(R.id.pound_input);
+        TextView kgtxt = findViewById(R.id.kilogram_text);
         fbtn.setOnClickListener(v -> {
-            if (finput.getText().length() == 0)
+            if (lbsinput.getText().length() == 0)
                 return;
-            double celcius = Converter.toCelcius(Float.parseFloat(finput.getText().toString()));
-            ctxt.setText(String.format("%.2f ºC", celcius));
+            double kilogram = Converter.toKG(Double.parseDouble(lbsinput.getText().toString()));
+            kgtxt.setText(String.format("%.2f kg", kilogram));
         });
     }
 }
