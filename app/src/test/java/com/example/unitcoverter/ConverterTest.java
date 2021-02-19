@@ -19,4 +19,14 @@ public class ConverterTest {
     public void pounds_conversion_isCorrect(){
         assertEquals(0.45359237, Converter.toKG(1), 0.01);
     }
+
+    @Test
+    public void miles_to_kilometers_isCorrect(){
+        assertEquals(1.60934, Converter.toKilom(1), 0.01);
+    }
+
+    @Test
+    public void feet_to_meters_isCorrect(){
+        assertEquals(0.3048, Converter.toMet(1), 0.01);
+    }
 }
