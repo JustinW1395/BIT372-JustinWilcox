@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView convertTo;
     private EditText convertFrom;
     private Button Convert;
-    private ConvertTitle title = new ConvertTitle("Conversion Tool");
+    private ConvertTitle title = new ConvertTitle("Title Conversions Here");
     private ActivityMainBinding binding;
 
 
@@ -118,7 +118,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 });
                 break;
             default:
-                Log.i("info", "Defaulted");
         }
 
     }
