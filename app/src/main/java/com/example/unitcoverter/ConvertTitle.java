@@ -11,6 +11,6 @@ public class ConvertTitle {
     }
 
     public void setTitle(String newTitle){
-        this.title.setValue(newTitle);
+        //this.title.setValue(newTitle);
     }
 }

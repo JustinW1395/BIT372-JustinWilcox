@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
-            name="title"
-            type="com.example.unitcoverter.ConvertTitle"/>
+            name="Text"
+            type="com.example.unitcoverter.ConverterText" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:text="Select a Conversion"
             android:textSize="24sp"
-            android:text="@{title.title}"
             app:layout_constraintHorizontal_bias="0.149"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -42,6 +42,7 @@
             android:layout_marginTop="16dp"
             android:ems="10"
             android:inputType="number"
+            android:text="@{Text.text}"
             app:layout_constraintEnd_toStartOf="@+id/convert_btn"
             app:layout_constraintHorizontal_bias="0.373"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +61,7 @@
 
         <TextView
             android:id="@+id/converter_text"
+            android:text="@{Text.text}"
             android:layout_width="64dp"
             android:layout_height="23dp"
             android:layout_marginTop="16dp"
