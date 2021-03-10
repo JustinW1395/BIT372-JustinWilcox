@@ -1,9 +1,11 @@
 package com.example.unitcoverter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -23,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private TextView convertTo;
     private EditText convertFrom;
     private Button Convert;
-    private ConverterText text = new ConverterText("");
+    private Title thetitle = new Title("Select Conversion");
+    private ActivityMainBinding binding;
 
 
 
@@ -35,9 +38,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setLifecycleOwner(this);
-        binding.setText(text);
+        binding.setTitle(thetitle);
 
 
         ArrayAdapter<CharSequence> adapter =
@@ -47,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
         convertFrom = findViewById(R.id.converter_input);
+        convertTo = findViewById(R.id.converter_text);
     }
 
 
@@ -65,49 +69,48 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selected = parent.getItemAtPosition(position).toString();
+        convertFrom.setText("");
+        convertTo.setText("");
+        Log.i("info", selected);
         switch(selected) {
             case "fahrenheit to celsius":
-                TextView title = findViewById(R.id.converter_title);
-                title.setText("Fahrenheit to Celcius");
+                thetitle.setTitle("Fahrenheit to Celcius");
                 Convert = findViewById(R.id.convert_btn);
                 Convert.setOnClickListener(v -> {
                     if(convertFrom.getText().length() == 0)
                         return;
                     double celcius = Converter.toCelcius(Double.parseDouble(convertFrom.getText().toString()));
-                    text.setText(String.format("%.2f ºC", celcius));
+                    convertTo.setText(String.format("%.2f ºC", celcius));
                 });
                 break;
             case "pounds to kilograms":
-                TextView title2 = findViewById(R.id.converter_title);
-                title2.setText("Pounds to Kilograms");
+                thetitle.setTitle("Pounds to Kilograms");
                 Convert = findViewById(R.id.convert_btn);
                 Convert.setOnClickListener(v -> {
                     if(convertFrom.getText().length() == 0)
                         return;
                     double kilograms = Converter.toKG(Double.parseDouble(convertFrom.getText().toString()));
-                    text.setText(String.format("%.2f kg", kilograms));
+                    convertTo.setText(String.format("%.2f kg", kilograms));
                 });
                 break;
             case "miles to kilometers":
-                TextView title3 = findViewById(R.id.converter_title);
-                title3.setText("Miles to Kilometers");
+                thetitle.setTitle("Miles to Kilometers");
                 Convert = findViewById(R.id.convert_btn);
                 Convert.setOnClickListener(v -> {
                     if(convertFrom.getText().length() == 0)
                         return;
                     double kilometers = Converter.toKilom(Double.parseDouble(convertFrom.getText().toString()));
-                    text.setText(String.format("%.2f km", kilometers));
+                    convertTo.setText(String.format("%.2f km", kilometers));
                 });
                 break;
             case "feet to meters":
-                TextView title4 = findViewById(R.id.converter_title);
-                title4.setText("Feet to Meters");
+                thetitle.setTitle("Feet to Meters");
                 Convert = findViewById(R.id.convert_btn);
                 Convert.setOnClickListener(v -> {
                     if(convertFrom.getText().length() == 0)
                         return;
                     double meters = Converter.toMet(Double.parseDouble(convertFrom.getText().toString()));
-                    text.setText(String.format("%.2f m", meters));
+                    convertTo.setText(String.format("%.2f m", meters));
                 });
                 break;
             default:
